@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prince's Cup - FantaEsaSport</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+   
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+     
+     
+    <link rel="stylesheet" href="risultati.css">
+</head>
+<body>
+
+    <header class="container-fluid">
+        
+            <a href="index.html">
+                <img class="logo" src="immagini/logo prince's cup-08.png" alt="Logo" width="50" height="50">
+            </a>
+            
+            <img src="immagini/FantaESA-04.png" alt="FantaEsasport" class="header-title">
+            
+            <button id="menu-apri" class="menu-apri">
+                <a class="burger"><i class="fas fa-bars"></i></a>
+            </button>
+        
+    </header>
+
+<nav class="overlay">
+<div class="container-overlay">
+    <ul class="menu">
+        <li><a href="squadre.html">Squadre</a></li>
+        <li><a href="risultati.html">Risultati</a></li>
+        <li><a href="classifica.html">Classifica</a></li>
+        <li><a href="statistiche.html">Statistiche</a></li>
+        <li><a href="Contatti.html">Regolamento</a></li>
+    </ul>
+    <button id="menu-chiudi" class="menu-chiudi">
+        <a class="x">x</a>
+    </button>
+</div>
+</nav>
+
+<div class="sezione-risultati">
+    <div class="intestazione">
+        <button class="btn-risultati">RISULTATI</button>
+        <div class="controlli-giornata">
+            <button class="freccia" onclick="prevGiornata()">&#x276E;</button>
+            <span id="giornata-title">Giornata 1</span>
+            <button class="freccia" onclick="nextGiornata()">&#x276F;</button>
+        </div>
+    </div>
+
+    <div class="blocchi-giornata" id="blocchiGiornata">
+        <!-- I blocchi delle partite vengono inseriti dinamicamente -->
+    </div>
+</div>
+<div id="modalePartita" class="modale">
+    <div class="contenuto-modale">
+      <span class="chiudi" onclick="chiudiModale()">&times;</span>
+      <img id="immagineDettagli" src="" alt="Dettagli partita" />
+    </div>
+  </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const giornataTitle = document.getElementById("giornata-title");
+    const blocchiGiornata = document.getElementById("blocchiGiornata");
+
+    let giornataCorrente = 1;
+
+    const datiPartite = {
+        1: [
+            
+        { data: "22 Aprile - Gruppo A", squadra1: "StanleyBet", gol1: 6, squadra2: "SSD EsaSport", gol2: 2, ora: "19:45" },
+            { data: "22 Aprile - Gruppo A", squadra1: "FantaEsagonale", gol1: "7", squadra2: "Atletico Mirage", gol2: "6", ora: "20:45" },
+            { data: "22 Aprile - Gruppo A", squadra1: "Snai", gol1:"-", squadra2: "Diblasi s.r.l.", gol2:"-", ora: "rinviata" },
+            
+            { data: "23 Aprile - Gruppo B", squadra1: "Los Cules", gol1: "-", squadra2: "Impresa edile di Marco Giandinoto", gol2: "-", ora: "19:45" },
+            {data: "23 Aprile - Gruppo B", squadra1: "La Camera sul Corso", gol1: "-", squadra2: "BistroWin", gol2: "-", ora: "20:45" },
+            {data: "23 Aprile - Gruppo B", squadra1: "Automotive", gol1: "-", squadra2: "I Calatini", gol2: "-", ora: "21:45" },
+        ],
+        2: [
+            { data: "28 Aprile - Gruppo A", squadra1: "-", gol1:"-", squadra2: "-", gol2:"-", ora: "19:45" },
+            { data: "28 Aprile - Gruppo A", squadra1: "-", gol1: "-", squadra2: "-", gol2:"-", ora: "20:45" },
+            { data: "28 Aprile - Gruppo A", squadra1: "-", gol1:"-", squadra2: "-", gol2:"-", ora: "21:45" },
+            { data: "29 Aprile - Gruppo B", squadra1: "-", gol1:"-", squadra2: "-", gol2:"-", ora: "19:45" },
+            { data: "29 Aprile - Gruppo B", squadra1: "-", gol1:"-", squadra2: "-", gol2:"-", ora: "20:45" },
+            { data: "29 Aprile - Gruppo B", squadra1: "-", gol1:"-", squadra2: "-", gol2:"-", ora: "21:45" },
+          
+          
+        ],
+        3: [
+            { data: "3 Maggio", squadra1: "Gufi", gol1: 0, squadra2: "Orsi", gol2: 1, ora: "17:00" },
+            { data: "3 Maggio", squadra1: "Lupi", gol1: "-", squadra2: "Leoni", gol2: "-", ora: "17:30" },
+        ],
+        4: [
+            { data: "6 Maggio", squadra1: "Aquila", gol1: 1, squadra2: "Gufi", gol2: 1, ora: "18:00" },
+            { data: "6 Maggio", squadra1: "Orsi", gol1: 2, squadra2: "Tigri", gol2: 0, ora: "18:30" },
+        ]
+    };
+
+    function mostraPartite() {
+        blocchiGiornata.innerHTML = "";
+        giornataTitle.textContent = "Giornata " + giornataCorrente;
+
+        const partite = datiPartite[giornataCorrente] || [];
+        let dataPrecedente = "";
+
+        partite.forEach((partita, index) => {
+            if (partita.data !== dataPrecedente) {
+                const dataEl = document.createElement("div");
+                dataEl.className = "data";
+                dataEl.textContent = partita.data;
+                blocchiGiornata.appendChild(dataEl);
+                dataPrecedente = partita.data;
+            }
+
+            const blocco = document.createElement("div");
+            blocco.className = "blocco-partita";
+
+            blocco.onclick = function () {
+                const imgPath = `immagini/partite/partita-${giornataCorrente}-${index + 1}.png`;
+                apriModale(imgPath);
+            };
+
+            const infoSquadre = document.createElement("div");
+            infoSquadre.className = "info-squadre";
+
+            const match1 = document.createElement("div");
+            match1.className = "match";
+            match1.innerHTML = `
+                <div class="squadra">${partita.squadra1}</div>
+                <div class="punteggio">${partita.gol1}</div>
+            `;
+
+            const match2 = document.createElement("div");
+            match2.className = "match";
+            match2.innerHTML = `
+                <div class="squadra">${partita.squadra2}</div>
+                <div class="punteggio">${partita.gol2}</div>
+            `;
+
+            infoSquadre.appendChild(match1);
+            infoSquadre.appendChild(match2);
+
+            const orario = document.createElement("div");
+            orario.className = "orario";
+            orario.textContent = partita.ora;
+
+            blocco.appendChild(infoSquadre);
+            blocco.appendChild(orario);
+            blocchiGiornata.appendChild(blocco);
+        });
+    }
+
+    window.prevGiornata = function () {
+        if (giornataCorrente > 1) {
+            giornataCorrente--;
+            mostraPartite();
+        }
+    };
+
+    window.nextGiornata = function () {
+        if (giornataCorrente < Object.keys(datiPartite).length) {
+            giornataCorrente++;
+            mostraPartite();
+        }
+    };
+
+    mostraPartite();
+});
+
+// MODALE: apertura e chiusura
+function apriModale(percorsoImmagine) {
+    const modale = document.getElementById("modalePartita");
+    const immagine = document.getElementById("immagineDettagli");
+    immagine.src = percorsoImmagine;
+    modale.style.display = "block";
+}
+
+function chiudiModale() {
+    document.getElementById("modalePartita").style.display = "none";
+}
+</script>  
+    <!-- Script per overlay menu -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const overlay = document.querySelector(".overlay");
+        const menuApri = document.getElementById("menu-apri");
+        const menuChiudi = document.querySelector(".x");
+    
+        menuApri.addEventListener("click", function() {
+            overlay.style.display = "flex";
+        });
+    
+        menuChiudi.addEventListener("click", function() {
+            overlay.style.display = "none";
+        });
+    
+        overlay.style.display = "none";
+    });
+    </script>
+
+</body>

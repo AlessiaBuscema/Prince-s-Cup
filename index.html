@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prince's Cup - FantaEsaSport</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+   
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+     
+     
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+    <header class="container-fluid">
+        
+            <a href="index.html">
+                <img class="logo" src="immagini/logo prince's cup-08.png" alt="Logo" width="50" height="50">
+            </a>
+            
+            <img src="immagini/FantaESA-04.png" alt="FantaEsasport" class="header-title">
+            
+            <button id="menu-apri" class="menu-apri">
+                <a class="burger"><i class="fas fa-bars"></i></a>
+            </button>
+        
+    </header>
+
+<nav class="overlay">
+<div class="container-overlay">
+    <ul class="menu">
+        <li><a href="squadre.html">Squadre</a></li>
+        <li><a href="risultati.html">Risultati</a></li>
+        <li><a href="classifica.html">Classifica</a></li>
+        <li><a href="statistiche.html">Statistiche</a></li>
+        <li><a href="Contatti.html">Regolamento</a></li>
+    </ul>
+    <button id="menu-chiudi" class="menu-chiudi">
+        <a class="x">x</a>
+    </button>
+</div>
+</nav>
+<div class="banner">
+    <img src="immagini/tornao-11.png" alt="Banner immagine" class="banner-image">
+</div>
+
+<section class="voci-navigazione">
+    <a href="squadre.html" class="voce voce1">SQUADRE</a>
+    <a href="risultati.html" class="voce voce2">RISULTATI</a>
+    <a href="classifica.html" class="voce voce3">CLASSIFICA</a>
+    <a href="statistiche.html" class="voce voce4">STATISTICHE</a>
+    <a href="Contatti.html" class="voce voce5">REGOLAMENTO</a>
+  </section>
+
+  
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const overlay = document.querySelector(".overlay");
+        const menuApri = document.getElementById("menu-apri");
+        const menuChiudi = document.querySelector(".x");
+
+        // Mostra l'overlay quando clicchi il burger menu
+        menuApri.addEventListener("click", function() {
+            overlay.style.display = "flex";
+        });
+
+        // Nasconde l'overlay quando clicchi la X
+        menuChiudi.addEventListener("click", function() {
+            overlay.style.display = "none";
+        });
+
+        // 👇 Assicurati che all'avvio sia nascosto (per sicurezza extra)
+        overlay.style.display = "none";
+    });
+</script>
+
+</body>
