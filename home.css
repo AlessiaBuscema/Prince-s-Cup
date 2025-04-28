@@ -286,7 +286,7 @@
         /* HEADER */
         @media screen and (max-width: 768px) {
             header {
-              height: 70px;
+              height: 80px;
               display: flex;
               align-items: center;
               justify-content: space-between;
@@ -294,20 +294,20 @@
             }
           
             .logo {
-              width: 45px;
-              height: 45px;
+              width: 55px;
+              height: 55px;
               position: static;
             }
           
             .header-title {
-              max-width: 110px;
+              max-width: 120px;
               height: auto;
               position: static;
               transform: none;
             }
           
             #menu-apri {
-              font-size: 20pt;
+              font-size: 22pt;
               position: static;
             }
           
@@ -315,12 +315,13 @@
               display: flex;
               align-items: center;
             }
+            .burger {
+              font-size: 20pt;
+            }
           }
           
       
-        .burger {
-          font-size: 20pt;
-        }
+        
       
         .menu a {
           font-size: 18pt;

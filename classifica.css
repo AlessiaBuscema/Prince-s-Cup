@@ -181,13 +181,13 @@
   .btn-classifica {
     background-color: #bdd7ef;
     border: 1px solid black;
-    padding: 10px 40px;
+    padding: 20px 70px;
     font-size: 20px;
     font-weight: bold;
     border-radius: 15px;
     margin-bottom: 10px;
     position: absolute;
-    top: 180px;
+    top: 120px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
@@ -343,7 +343,7 @@
 
   @media screen and (max-width: 768px) {
     header {
-      height: 70px;
+      height: 80px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -351,20 +351,20 @@
     }
   
     .logo {
-      width: 45px;
-      height: 45px;
+      width: 55px;
+      height: 55px;
       position: static;
     }
   
     .header-title {
-      max-width: 110px;
+      max-width: 120px;
       height: auto;
       position: static;
       transform: none;
     }
   
     #menu-apri {
-      font-size: 20pt;
+      font-size: 22pt;
       position: static;
     }
   
@@ -372,12 +372,20 @@
       display: flex;
       align-items: center;
     }
-  
+    .burger {
+      font-size: 20pt;
+    }
+    .menu a {
+      font-size: 18pt;
+    }
+    .menu-chiudi {
+            
+        font-size: 25pt;
+    
+    }
+  }
   
 
-.burger {
-  font-size: 20pt;
-}
 
 .menu a {
   font-size: 18pt;
@@ -387,7 +395,7 @@
     font-size: 25pt;
 
 }
-}
+
 
 @media screen and (max-width: 768px){}
 .btn-classifica {
