@@ -197,7 +197,7 @@
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 20px;
+    gap: 80px;
     padding: 80px 20px 20px 20px;
     scroll-padding-left: 20px;
     justify-content: flex-start;  /* meglio per lo snap */
@@ -266,6 +266,10 @@
     position: relative;
     table-layout: auto;  /* 👈 cambia questo da "fixed" */
     padding-top: 70px;
+    gap:30px;
+  }
+  .page-wrapper {
+    min-height: calc(100vh - 180px); /* Altezza footer stimata */
   }
   
   /* 👇 ECCO IL BLOCCO DA AGGIUNGERE */
