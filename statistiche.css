@@ -170,26 +170,29 @@
                 transform: scale(1.1); /* Ingrandisce leggermente */
             }
             
-            .statistiche-fake {
+            
+              .statistiche-fake {
                 text-align: center;
                 padding-top: 140px;
                 padding-bottom: 50px;
-                min-height: 100vh;
+              
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
               }
+              
               
               .btn-statistiche {
                 background-color: #bdd7ef;
                 border: 1px solid #000;
-              
                 font-size: 20px;
                 font-weight: bold;
                 border-radius: 15px;
                 margin-bottom: 20px;
-                padding: 20px 70px;
+                padding: 22px 65px;
            /* 👈 ridotto da 30px a 10px */
               }
-              
-              
+             
               
               .immagine-statistiche {
                 max-width: 100%;
@@ -197,6 +200,9 @@
                 border-radius: 20px;
                ;
               }
+
+
+
 
               @media screen and (min-width: 768px) {
                 .statistiche-fake {
@@ -208,11 +214,7 @@
     margin-top: 20px;
   }
 
-  .btn-statistiche {
-    font-size: 22px;
-    padding: 12px 40px;
-    margin-bottom: 15px;
-  }
+  
                 
 .players .staff {
   margin-top: 10px;
