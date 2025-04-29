@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="risultati.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
@@ -77,9 +78,9 @@ const datiPartite = {
     { data: "23 Aprile - Gruppo B", squadra1: "Automotive", gol1: "-", squadra2: "I Calatini", gol2: "-", ora: "rinviata al 06/05" }
   ],
   "2025-04-28": [
-    { data: "28 Aprile - Gruppo A", squadra1: "StanleyBet", gol1: "-", squadra2: "FantaEsagonale", gol2: "-", ora: "19:45" },
-    { data: "28 Aprile - Gruppo A", squadra1: "SSD EsaSport", gol1: "-", squadra2: "Atletico Mirage", gol2: "-", ora: "20:45" },
-    { data: "28 Aprile - Gruppo A", squadra1: "Snai", gol1: "-", squadra2: "Diblasi s.r.l.", gol2: "-", ora: "21:45" }
+    { data: "28 Aprile - Gruppo A", squadra1: "Diblasi s.r.l", gol1: "3", squadra2: "FantaEsagonale", gol2: "1", ora: "19:45" },
+    { data: "28 Aprile - Gruppo A", squadra1: "Arti Casearie Nicastro", gol1: "2", squadra2: "StanleyBet", gol2: "8", ora: "20:45" },
+    { data: "28 Aprile - Gruppo A", squadra1: "SSD EsaSport", gol1: "7", squadra2: "Diblasi s.r.l.", gol2: "7", ora: "21:45" }
   ],
   "2025-04-29": [
     { data: "29 Aprile - Gruppo B", squadra1: "Il Michelangelo", gol1: "-", squadra2: "La Camera sul Corso", gol2: "-", ora: "19:45" },
@@ -334,6 +335,70 @@ function formattaNomeData(dataInput) {
         overlay.style.display = "none";
     });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const toggles = document.querySelectorAll('.dropdown > i');
+          toggles.forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+              e.stopPropagation();
+              const menu = this.nextElementSibling;
+              menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+            });
+          });
+      
+          window.addEventListener('click', function() {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+              menu.style.display = 'none';
+            });
+          });
+        });
+      </script>
 
+<footer class="footer">
+    <div class="footer-top">
+        <div class="footer-logos">
+        
+                <div class="logo-duo">
+                  <img src="immagini/logo prince's cup-08.png" alt="Logo torneo" class="logo-footer">
+                  <span class="logo-x">×</span>
+                  <img src="immagini/FantaESA-04.png" alt="Logo esasport" class="logo-footer logo-societa">
+                </div>
+                <span>Progetto di <strong>FantaESASport</strong></span>
+              </div>
+              
+  
+      <div class="footer-contatti">
+        <!-- Instagram -->
+        <div class="dropdown">
+          <i class="fab fa-instagram" id="igToggle"></i>
+          <div class="dropdown-menu" id="igMenu">
+            <a href="https://www.instagram.com/ssd_esasport/" target="_blank">@SSDEsasport</a>
+            <a href="https://www.instagram.com/fantaesagonale/" target="_blank">@FantaEsagonale</a>
+            <a href="https://www.instagram.com/fantaesasport/" target="_blank">@FantaEsaSport</a>
+          </div>
+        </div>
+  
+        <!-- Telefono -->
+        <div class="dropdown">
+          <i class="fas fa-phone" id="phoneToggle"></i>
+          <div class="dropdown-menu" id="phoneMenu">
+            <a href="tel:+393285728817">+39 3285728817</a>
+            <a href="tel:+393271113808">+39 3271113808</a>
+          </div>
+        </div>
+  
+        <!-- Email -->
+        <a href="mailto: fantaesagonale@gmail.com" class="footer-icon">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      Designed by Alessia Buscema
+    </div>
+  </footer>
 </body>
+
+
 </html>

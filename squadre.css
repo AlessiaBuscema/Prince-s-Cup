@@ -5,15 +5,19 @@
         font-family: 'Montserrat', sans-serif;
         background-color: #000; /* Colore di sfondo per tutta la pagina */
         color: white;
-        background-image: url('immagini/sfondo-10.jpg'); /* Immagine di sfondo, puoi cambiare il percorso */
+        background-image: url('immagini/sfondo.jpg'); /* Immagine di sfondo, puoi cambiare il percorso */
         background-size: cover; /* Adatta l'immagine per coprire tutta la pagina */
         background-position: center; /* Centra l'immagine */
         background-attachment: fixed; /* Fissa lo sfondo mentre scorri la pagina */
-        margin-bottom: 50px;
+        
+        min-height: 150vh;
     }
       .container-fluid {
         margin-top: 0px;
         margin-left: 0px;
+    }
+    .page-wrapper {
+      min-height: calc(100vh - 180px); /* Altezza footer stimata */
     }
     
     .hidden {
@@ -182,20 +186,19 @@
 
         /* INIZIA IL CODICE PER LA TABELLA */
 
-        .container {
-            max-width: 800px;
-            margin: 100px auto 80px;
-            padding: 40px 30px;
        
+          .container {
+            max-width: 800px;
+            margin: 120px auto 80px;
+            padding: 40px 30px;
             border-radius: 16px;
             background-color: white;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             position: relative;
+            border: 1px solid black;
             top: 120px;
-            border: 1px solid black; /* 👈 riaggiunto il bordo */
-            margin-bottom: 50px;
           }
-          
+
           .section-title {
             position: absolute;
             top: -40px;
@@ -316,6 +319,7 @@
 }
 
 
+
 @media screen and (max-width: 768px) {
 
   .container {
@@ -415,3 +419,165 @@
 
 
 
+        /* footer*/
+
+        .footer {
+          background-color: #000; /* 👈 SFONDO NERO */
+          border-top-left-radius: 30px;
+          border-top-right-radius: 30px;
+          margin-top: 60px;
+          padding: 20px 15px 8px;
+          font-size: 12px;
+          color: #fff; /* 👈 TESTO BIANCO */
+          
+          box-shadow: 0 -2px 10px rgba(255,255,255,0.1);
+          text-align: center;
+        }
+        
+        .footer-top {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+        }
+        
+        .footer-logos {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          flex-direction: column;
+        }
+        
+        .logo-footer {
+          width: 45px;
+        }
+        
+        .logo-societa {
+          width: 70px; /* o quanto vuoi: 70px se vuoi un bel contrasto */
+        }
+        
+        .footer-contatti {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          font-size: 20px;
+          position: relative;
+        }
+        
+        .footer-icon {
+          color: #fff;
+          text-decoration: none;
+        }
+        .logo-duo {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        
+        .logo-x {
+          font-size: 18px;
+          font-weight: 300;     /* più sottile */
+          color: #aaa;          /* grigio chiaro */
+        }
+        
+        
+        .dropdown {
+          position: relative;
+        }
+        
+        .dropdown-menu {
+          display: none;
+          position: absolute;
+          bottom: 30px; /* 👈 Invece di "top", usa "bottom" */
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: #222;
+          border: 1px solid #555;
+          border-radius: 10px;
+          z-index: 999;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+          padding: 8px 12px;
+          min-width: 150px;
+          text-align: left;
+        }
+        
+        
+        .dropdown-menu a {
+          display: block;
+          color: #fff; /* 👈 SCRITTA BIANCA */
+          text-decoration: none;
+          padding: 5px 0;
+          font-size: 14px;
+        }
+        
+        .dropdown-menu a:hover {
+          color: #ffa200; /* 👈 Hover arancione */
+        }
+        
+        .footer-bottom {
+          margin-top: 20px;
+          font-size: 12px;
+          color: #aaa; /* 👈 Più chiaro sotto */
+        }
+        
+
+        @media (max-width: 768px) {
+          .footer {
+            padding: 10px 8px;
+            font-size: 10px;
+          }
+        
+          .footer-top {
+            flex-direction: column;
+            gap: 8px;
+          }
+        
+          .footer-logos {
+            flex-direction: column;
+            align-items: center;
+          }
+        
+          .logo-duo {
+            flex-direction: row;
+            gap: 6px;
+            justify-content: center;
+          }
+        
+          .logo-footer {
+            width: 28px;
+          }
+        
+          .logo-societa {
+            width: 35px;
+          }
+        
+          .logo-x {
+            font-size: 12px;
+            font-weight: 200;
+            color: rgba(255, 255, 255, 0.4);
+          }
+        
+          .footer-contatti {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 16px;
+          }
+        
+          .dropdown-menu {
+            bottom: 30px;
+            min-width: 110px;
+            padding: 5px 8px;
+            font-size: 12px;
+          }
+        
+          .footer-bottom {
+            font-size: 9px;
+            margin-top: 10px;
+          }
+        }
+        .spazio-finale {
+          height: 100px;
+          width: 100%;
+        }
+      
